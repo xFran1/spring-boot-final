@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Tarea</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+</head>
+<body class="container mt-5">
+    <h2 class="mb-4">Editar Tarea</h2>
+
+    <!-- Mostrar mensajes de error o éxito -->
+    <div th:if="${error}" class="alert alert-danger">
+        <p th:text="${error}"></p>
+    </div>
+    <div th:if="${success}" class="alert alert-success">
+        <p th:text="${success}"></p>
+    </div>
+
+    <!-- Formulario para editar tarea -->
+    <form th:action="@{/todos/{id}/actualizar(id=${todo.id})}" method="post">
+        <div class="mb-3">
+            <label for="asunto" class="form-label">Asunto:</label>
+            <input type="text" id="asunto" name="asunto" class="form-control" th:value="${todo.asunto}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="mensaje" class="form-label">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" class="form-control" rows="3" required th:text="${todo.mensaje}"></textarea>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input type="checkbox" id="completado" name="completado" class="form-check-input" th:checked="${todo.completado}">
+            <label for="completado" class="form-check-label">Completado</label>
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar cambios</button>
+        <a href="/iniciar" class="btn btn-secondary">Cancelar</a>
+    </form>
+</body>
+</html>
