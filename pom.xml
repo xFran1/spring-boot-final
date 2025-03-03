@@ -65,7 +65,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.example</groupId>
-			<artifactId>EjemploBDJPA</artifactId>
+			<artifactId>proyecto-spring-final</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
